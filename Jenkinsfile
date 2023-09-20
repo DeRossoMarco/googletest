@@ -8,7 +8,7 @@ pipeline {
         sh '''cd googletest
 mkdir build
 cd build
-cmake ..
+sudo cmake ..
 make
 sudo make install'''
       }
