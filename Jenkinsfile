@@ -1,16 +1,13 @@
 pipeline {
   agent any
   stages {
-    stage('Installing') {
+    stage('Build') {
       agent any
       steps {
-        echo 'Installing...'
-        sh '''cd googletest
-mkdir build
-cd build
-cmake ..
-make
-sudo make install'''
+        echo 'Building...'
+        sh '''cd googletest/googletest/samples
+g++ -o sample10_unittest.cc -lgtest -lpthread
+'''
       }
     }
 
