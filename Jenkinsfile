@@ -1,10 +1,17 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
+    stage('Installing') {
       agent any
       steps {
-        echo 'Building...'
+        echo 'Installing...'
+        sh '''git clone https://github.com/DeRossoMarco/googletest.git
+cd googletest
+mkdir build
+cd build
+cmake ..
+make
+sudo make install'''
       }
     }
 
