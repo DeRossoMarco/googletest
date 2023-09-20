@@ -5,8 +5,8 @@ pipeline {
       agent any
       steps {
         echo 'Building...'
-        sh '''cd /home/ubuntu/googletest/googletest/samples
-g++ -o sample10_unittest.cc -lgtest -lpthread
+        dir(path: '/home/ubuntu/googletest/googletest/samples')
+        sh '''g++ -o sample10_unittest.cc -lgtest -lpthread
 '''
       }
     }
