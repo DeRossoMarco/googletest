@@ -5,8 +5,7 @@ pipeline {
       agent any
       steps {
         echo 'Installing...'
-        sh '''git clone https://github.com/DeRossoMarco/googletest.git
-cd googletest
+        sh '''cd googletest
 mkdir build
 cd build
 cmake ..
