@@ -6,11 +6,17 @@ pipeline {
       steps {
         echo 'Checkout...'
         checkout([$class: 'GitSCM',
-                  branches: [[name: '*/main']],
-                  doGenerateSubmoduleConfigurations: false,
-                  extensions: [],
-                  submoduleCfg: [],
-                  userRemoteConfigs: [[url: 'https://github.com/DeRossoMarco/googletest.git']]])
+                          branches: [[name: '*/main']],
+                          doGenerateSubmoduleConfigurations: false,
+                          extensions: [],
+                          submoduleCfg: [],
+                          userRemoteConfigs: [[url: 'https://github.com/DeRossoMarco/googletest.git']]])
+      }
+    }
+
+    stage('Build') {
+      steps {
+        echo 'Building...'
       }
     }
 
