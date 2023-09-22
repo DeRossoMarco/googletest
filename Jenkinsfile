@@ -17,6 +17,10 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building...'
+        dir('build') {
+                    sh 'cmake ..'
+                    sh 'make'
+                }
       }
     }
 
