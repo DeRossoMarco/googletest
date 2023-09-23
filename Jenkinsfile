@@ -18,7 +18,7 @@ pipeline {
       steps {
         echo 'Building...'
         dir('build') {
-                    sh 'cmake ..'
+                    sh 'cmake ../../..'
                     sh 'make'
                 }
       }
