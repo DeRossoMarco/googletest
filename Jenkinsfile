@@ -1,5 +1,6 @@
 pipeline {
   agent any
+  
   stages {
     stage('Checkout') {
       agent any
@@ -18,19 +19,21 @@ pipeline {
       steps {
         echo 'Building...'
         dir('build') {
-                    sh 'cmake .. -DBUILD_GMOCK=OFF'
-                    sh 'make'
-                    sh 'make install'
-                }
+          sh 'cmake .. -DBUILD_GMOCK=OFF'
+          sh 'make'
+          sh 'make install'
+        }
       }
     }
+    
     stage('Test') {
-            steps {
-                dir('build') {
-                    sh 'make test'
-                }
-            }
+      steps {
+        echo 'Testing...'
+        dir('build') {
+          sh 'make test'
         }
+      }
+    }
 
   }
 }
