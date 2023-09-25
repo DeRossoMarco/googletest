@@ -21,6 +21,7 @@ pipeline {
         dir('build') {
           sh 'cmake .. -DBUILD_GMOCK=OFF'
           sh 'make'
+          sh 'sudo make install'
         }
       }
     }
