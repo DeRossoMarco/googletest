@@ -20,9 +20,17 @@ pipeline {
         dir('build') {
                     sh 'cmake .. -DBUILD_GMOCK=OFF'
                     sh 'make'
+                    sh 'make install'
                 }
       }
     }
+    stage('Test') {
+            steps {
+                dir('build') {
+                    sh 'make test'
+                }
+            }
+        }
 
   }
 }
