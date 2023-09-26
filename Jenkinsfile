@@ -38,7 +38,7 @@ pipeline {
       steps {
         echo 'Building example...'
         dir('demo') {
-          sh 'g++ -o calc_test calc_test.cpp calc.cpp -L/var/lib/jenkins/workspace/googletest/build/lib/ -llibgtest -lpthread'
+          sh 'g++ -o calc_test calc_test.cpp calc.cpp -I/var/lib/jenkins/workspace/googletest/build/lib/ -lgtest -lpthread'
         }
       }
     }
