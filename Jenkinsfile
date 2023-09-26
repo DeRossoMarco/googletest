@@ -15,9 +15,9 @@ pipeline {
       }
     }
 
-    stage('Build') {
+    stage('Build library') {
       steps {
-        echo 'Building...'
+        echo 'Building library...'
         dir('build') {
           sh 'cmake .. -DBUILD_GMOCK=OFF'
           sh 'make'
@@ -25,11 +25,29 @@ pipeline {
       }
     }
     
-    stage('Test') {
+    stage('Test library') {
       steps {
-        echo 'Testing...'
+        echo 'Testing library...'
         dir('build') {
           sh 'make test'
+        }
+      }
+    }
+
+    stage('Build example') {
+      steps {
+        echo 'Building example...'
+        dir('demo') {
+          sh 'g++ -o calc_test calc_test.cpp calc.cpp -lgtest -lpthread'
+        }
+      }
+    }
+
+    stage('Test example') {
+      steps {
+        echo 'Testing example...'
+        dir('demo') {
+          sh './calc_test'
         }
       }
     }
