@@ -1,4 +1,4 @@
-#include "gtest/gtest.h"
+#include "/var/lib/jenkins/workspace/googletest/googletest/include/gtest/gtest.h"
 #include "calc.hpp"
 
 TEST(CalcTest, Addition) {
