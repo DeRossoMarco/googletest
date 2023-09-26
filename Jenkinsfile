@@ -34,9 +34,9 @@ pipeline {
       }
     }
 
-    stage('Build example') {
+    stage('Build demo') {
       steps {
-        echo 'Building example...'
+        echo 'Building demo...'
         dir('demo') {
           sh 'g++ -o calc_test calc_test.cpp calc.cpp -I/var/lib/jenkins/workspace/googletest/googletest/include/ -L/var/lib/jenkins/workspace/googletest/build/lib/ -lgtest -lpthread'
 '
@@ -44,9 +44,9 @@ pipeline {
       }
     }
 
-    stage('Test example') {
+    stage('Test demo') {
       steps {
-        echo 'Testing example...'
+        echo 'Testing demo...'
         dir('demo') {
           sh './calc_test'
         }
