@@ -1,3 +1,4 @@
+#include "gtest/gtest.h"
 #include "calc.hpp"
 
 TEST(CalcTest, Addition) {
