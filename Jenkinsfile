@@ -52,5 +52,9 @@ pipeline {
       }
     }
 
+    stage('Example') {
+      steps {
+        echo 'This is a example...'
+
   }
 }
